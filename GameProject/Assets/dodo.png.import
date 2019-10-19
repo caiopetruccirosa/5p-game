@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grassRockTileset.png-caf76929bae26c7b1a5506d57eda0d22.stex"
+path="res://.import/dodo.png-fdb6d8516ebe6ed5e095ed29ee8455aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TileMaps/grassRockTileset.png"
-dest_files=[ "res://.import/grassRockTileset.png-caf76929bae26c7b1a5506d57eda0d22.stex" ]
+source_file="res://Assets/dodo.png"
+dest_files=[ "res://.import/dodo.png-fdb6d8516ebe6ed5e095ed29ee8455aa.stex" ]
 
 [params]
 
