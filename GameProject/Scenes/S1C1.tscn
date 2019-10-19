@@ -1,8 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/S1C1.gd" type="Script" id=1]
 [ext_resource path="res://TileMaps/GrassRocks.tres" type="TileSet" id=2]
-[ext_resource path="res://Scenes/PlayerPlaceholderScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/godot_icon00.png" type="Texture" id=3]
+[ext_resource path="res://Assets/dodo.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/PressurePlate.gd" type="Script" id=5]
+[ext_resource path="res://Assets/square.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/PlayerPlaceholderScene.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 265.795, 23.6038 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 88.7314, 29.5059 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 59.2531, 97.0254 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 98.3982, 101.048 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 132.881, 34.8906 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 65.2721, 40.8975 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 106.008, 102.363 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 94.2603, 282.607 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 67.3362, 19.8232 )
 
 [node name="S1C1" type="Node2D"]
 script = ExtResource( 1 )
@@ -38,10 +69,8 @@ editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vela 2/StaticBody2D"]
 
-[node name="PlayerPlaceholder" parent="." instance=ExtResource( 3 )]
-position = Vector2( 506.407, 185.245 )
-
 [node name="Canvas" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="info" type="Panel" parent="Canvas"]
 editor/display_folded = true
@@ -60,6 +89,7 @@ align = 1
 valign = 1
 
 [node name="Instruction01" type="Panel" parent="Canvas"]
+editor/display_folded = true
 visible = false
 margin_left = 565.0
 margin_top = 480.0
@@ -75,7 +105,7 @@ margin_top = 10.0
 margin_right = 225.0
 margin_bottom = 60.0
 rect_scale = Vector2( 1.02118, 1.12036 )
-text = "(APERTE [WASD] PARA SE MOVER)"
+text = "(USE AS SETAS PARA SE MOVER)"
 align = 1
 valign = 1
 autowrap = true
@@ -104,6 +134,33 @@ text = "(APERTE [Z] PARA INTERAGIR)"
 align = 1
 valign = 1
 autowrap = true
+
+[node name="Mistake" type="Panel" parent="Canvas"]
+editor/display_folded = true
+visible = false
+margin_left = 390.0
+margin_top = 440.0
+margin_right = 630.0
+margin_bottom = 520.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Canvas/Mistake"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 225.0
+margin_bottom = 60.0
+rect_scale = Vector2( 1.02118, 1.12036 )
+text = "RESPOSTA INCORRETA!
+Tente Novamente. . ."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="mistakeMsgEnd" type="Timer" parent="Canvas"]
+wait_time = 2.5
+one_shot = true
 
 [node name="toInstruction01" type="Timer" parent="."]
 wait_time = 10.0
@@ -134,3 +191,368 @@ text = "GUARDA DE CELA:
 
 Finalmente acordou, alquimista? Bem vindo à décima bolgia do oitavo círculo do inferno, seu novo lar!"
 autowrap = true
+
+[node name="IronBarsRight" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 692.713, 2589.18 )
+
+[node name="Sprite" type="Sprite" parent="IronBarsRight"]
+scale = Vector2( 2.52655, 0.205973 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IronBarsRight"]
+position = Vector2( 7.73779, -1.54761 )
+scale = Vector2( -0.99639, 1.02027 )
+shape = SubResource( 1 )
+
+[node name="closeDoor" type="Timer" parent="IronBarsRight"]
+wait_time = 2.0
+one_shot = true
+
+[node name="IronBarsLeft" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 152.891, 2590.54 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="IronBarsLeft"]
+scale = Vector2( 0.838577, 0.257504 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IronBarsLeft"]
+position = Vector2( -3.09512, 0 )
+scale = Vector2( 0.933381, 0.674202 )
+shape = SubResource( 2 )
+
+[node name="DrunkMan" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 125.464, 2285.68 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="DrunkMan"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrunkMan"]
+shape = SubResource( 3 )
+
+[node name="PressurePlate" type="Area2D" parent="."]
+position = Vector2( 900, 2320 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressurePlate"]
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="PressurePlate"]
+texture = ExtResource( 6 )
+
+[node name="closeDoorTimer" type="Timer" parent="PressurePlate"]
+wait_time = 3.0
+one_shot = true
+
+[node name="DoorClose" type="Area2D" parent="."]
+position = Vector2( 505.118, 3242.33 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorClose"]
+shape = SubResource( 5 )
+
+[node name="dlgEnd" type="Timer" parent="."]
+wait_time = 3.5
+one_shot = true
+
+[node name="Souls" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Soul1" type="StaticBody2D" parent="Souls"]
+editor/display_folded = true
+position = Vector2( 712.527, 3835.93 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Souls/Soul1"]
+scale = Vector2( 0.42878, 0.355057 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Souls/Soul1"]
+scale = Vector2( 0.68, 1 )
+shape = SubResource( 6 )
+
+[node name="dlg" type="Panel" parent="Souls/Soul1"]
+editor/display_folded = true
+margin_left = -344.561
+margin_top = -37.5808
+margin_right = -64.5614
+margin_bottom = 32.4192
+
+[node name="Label" type="Label" parent="Souls/Soul1/dlg"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 270.0
+margin_bottom = 60.0
+text = "Soul01 Soul01 Soul01 Soul01 Soul01 Soul01 Soul01 Soul01 Soul01 Soul01 Soul01 Soul01 Soul01 Soul01 Soul01 "
+autowrap = true
+
+[node name="Soul2" type="StaticBody2D" parent="Souls"]
+editor/display_folded = true
+position = Vector2( 284.738, 4081.37 )
+
+[node name="Sprite" type="Sprite" parent="Souls/Soul2"]
+scale = Vector2( 0.42878, 0.355057 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Souls/Soul2"]
+scale = Vector2( 0.68, 1 )
+shape = SubResource( 6 )
+
+[node name="dlg" type="Panel" parent="Souls/Soul2"]
+editor/display_folded = true
+margin_left = 84.0027
+margin_top = -33.6848
+margin_right = 364.003
+margin_bottom = 36.3152
+
+[node name="Label" type="Label" parent="Souls/Soul2/dlg"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 270.0
+margin_bottom = 60.0
+text = "Soul02 Soul02 Soul02 Soul02 Soul02 Soul02 Soul02 Soul02 Soul02 Soul02 Soul02 Soul02 Soul02 Soul02 Soul02 "
+autowrap = true
+
+[node name="Soul3" type="StaticBody2D" parent="Souls"]
+editor/display_folded = true
+position = Vector2( 727.316, 4386.65 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Souls/Soul3"]
+scale = Vector2( 0.42878, 0.355057 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Souls/Soul3"]
+scale = Vector2( 0.68, 1 )
+shape = SubResource( 6 )
+
+[node name="dlg" type="Panel" parent="Souls/Soul3"]
+editor/display_folded = true
+margin_left = -344.561
+margin_top = -37.5808
+margin_right = -64.5614
+margin_bottom = 32.4192
+
+[node name="Label" type="Label" parent="Souls/Soul3/dlg"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 270.0
+margin_bottom = 60.0
+text = "Soul03 Soul03 Soul03 Soul03 Soul03 Soul03 Soul03 Soul03 Soul03 Soul03 Soul03 Soul03 Soul03 Soul03 Soul03 "
+autowrap = true
+
+[node name="Soul4" type="StaticBody2D" parent="Souls"]
+editor/display_folded = true
+position = Vector2( 300.916, 4654.94 )
+
+[node name="Sprite" type="Sprite" parent="Souls/Soul4"]
+scale = Vector2( 0.42878, 0.355057 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Souls/Soul4"]
+scale = Vector2( 0.68, 1 )
+shape = SubResource( 6 )
+
+[node name="dlg" type="Panel" parent="Souls/Soul4"]
+editor/display_folded = true
+margin_left = 84.0027
+margin_top = -33.6848
+margin_right = 364.003
+margin_bottom = 36.3152
+
+[node name="Label" type="Label" parent="Souls/Soul4/dlg"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 270.0
+margin_bottom = 60.0
+text = "Soul04 Soul04 Soul04 Soul04 Soul04 Soul04 Soul04 Soul04 Soul04 Soul04 Soul04 Soul04 Soul04 Soul04 Soul04 "
+autowrap = true
+
+[node name="Soul5" type="StaticBody2D" parent="Souls"]
+editor/display_folded = true
+position = Vector2( 691.019, 5028.86 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Souls/Soul5"]
+scale = Vector2( 0.42878, 0.355057 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Souls/Soul5"]
+scale = Vector2( 0.68, 1 )
+shape = SubResource( 6 )
+
+[node name="dlg" type="Panel" parent="Souls/Soul5"]
+editor/display_folded = true
+margin_left = -344.561
+margin_top = -37.5808
+margin_right = -64.5614
+margin_bottom = 32.4192
+
+[node name="Label" type="Label" parent="Souls/Soul5/dlg"]
+margin_left = 11.7625
+margin_top = 7.76855
+margin_right = 271.763
+margin_bottom = 57.7686
+text = "Soul05 Soul05 Soul05 Soul05 Soul05 Soul05 Soul05 Soul05 Soul05 Soul05 Soul05 Soul05 Soul05 Soul05 Soul05 "
+autowrap = true
+
+[node name="Soul6" type="StaticBody2D" parent="Souls"]
+editor/display_folded = true
+position = Vector2( 282.222, 5339.76 )
+
+[node name="Sprite" type="Sprite" parent="Souls/Soul6"]
+scale = Vector2( 0.42878, 0.355057 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Souls/Soul6"]
+scale = Vector2( 0.68, 1 )
+shape = SubResource( 6 )
+
+[node name="dlg" type="Panel" parent="Souls/Soul6"]
+editor/display_folded = true
+margin_left = 84.0027
+margin_top = -33.6848
+margin_right = 364.003
+margin_bottom = 36.3152
+
+[node name="Label" type="Label" parent="Souls/Soul6/dlg"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 270.0
+margin_bottom = 60.0
+text = "Soul06 Soul06 Soul06 Soul06 Soul06 Soul06 Soul06 Soul06 Soul06 Soul06 Soul06 Soul06 Soul06 Soul06 Soul06 "
+autowrap = true
+
+[node name="Soul7" type="StaticBody2D" parent="Souls"]
+editor/display_folded = true
+position = Vector2( 717.961, 5712.82 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Souls/Soul7"]
+scale = Vector2( 0.42878, 0.355057 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Souls/Soul7"]
+scale = Vector2( 0.68, 1 )
+shape = SubResource( 6 )
+
+[node name="dlg" type="Panel" parent="Souls/Soul7"]
+margin_left = -344.561
+margin_top = -37.5808
+margin_right = -64.5614
+margin_bottom = 32.4192
+
+[node name="Label" type="Label" parent="Souls/Soul7/dlg"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 270.0
+margin_bottom = 60.0
+text = "Soul07 Soul07 Soul07 Soul07 Soul07 Soul07 Soul07 Soul07 Soul07 Soul07 Soul07 Soul07 Soul07 Soul07 Soul07 "
+autowrap = true
+
+[node name="Terra" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 20.1266, 6471.89 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Terra"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terra"]
+shape = SubResource( 7 )
+
+[node name="Fogo" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( -264.317, 6825 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Fogo"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fogo"]
+shape = SubResource( 7 )
+
+[node name="Ar" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( -274.125, 7246.76 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ar"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ar"]
+shape = SubResource( 7 )
+
+[node name="Agua" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 34.8391, 7614.57 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Agua"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Agua"]
+shape = SubResource( 7 )
+
+[node name="FinalDoor" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 1170.53, 7092.47 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="FinalDoor"]
+position = Vector2( 10.868, 43.4722 )
+scale = Vector2( 0.883865, 2.70953 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalDoor"]
+position = Vector2( 12.3032, 42.3315 )
+shape = SubResource( 8 )
+
+[node name="PlayerPlaceholder" parent="." instance=ExtResource( 7 )]
+position = Vector2( 500.523, 173.461 )
+
+[node name="IronDoor" type="StaticBody2D" parent="."]
+position = Vector2( 340.517, 2588.25 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IronDoor"]
+shape = SubResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="IronDoor"]
+scale = Vector2( 0.892664, 0.251429 )
+texture = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="IronDoor"]
+[connection signal="body_entered" from="PressurePlate" to="PressurePlate" method="_on_PressurePlate_body_entered"]
+[connection signal="timeout" from="PressurePlate/closeDoorTimer" to="PressurePlate" method="_on_closeDoorTimer_timeout"]
