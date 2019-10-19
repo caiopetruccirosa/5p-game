@@ -17,6 +17,10 @@ _global_script_class_icons={
 
 config/name="5PGame"
 
+[autoload]
+
+global="*res://global.gd"
+
 [input]
 
 ui_interact={
