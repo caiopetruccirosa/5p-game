@@ -5,12 +5,12 @@
 [node name="Continue" instance=ExtResource( 1 )]
 
 [node name="VBoxContainer" parent="CenterContainer" index="0"]
-margin_left = 590.0
-margin_right = 689.0
+margin_left = 400.0
+margin_right = 880.0
 
 [node name="Label" parent="CenterContainer/VBoxContainer" index="0"]
-margin_right = 99.0
-text = "Continue Scene"
+margin_right = 480.0
+text = "Você não possui progressos salvos!"
 
 [node name="Button" parent="CenterContainer/VBoxContainer" index="1"]
-margin_right = 99.0
+margin_right = 480.0
