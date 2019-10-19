@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="5PGame"
+config/icon="res://icon.png"
 
 [rendering]
 
