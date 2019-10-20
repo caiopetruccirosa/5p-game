@@ -1,17 +1,81 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/maincharacter.png" type="Texture" id=1]
+[ext_resource path="res://scenes/ItemHandler.gd" type="Script" id=2]
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+class_name Player
+
+var direction = Vector2()
+var speed = 0
+var is_animated = false 
+var items = []
+
+const TOP = Vector2(0, -1)
+const DOWN = Vector2(0, 1)
+const RIGHT = Vector2(1, 0)
+const LEFT = Vector2(-1, 0)
+
+const MAX_SPEED = 400
+
+func _ready():
+	set_physics_process(true)
+	print(items)
+	
+func _physics_process(delta):
+	var is_moving = true
+	if Input.is_action_pressed(\"ui_up\"):
+		if is_animated == false or direction != TOP:
+			$AnimationPlayer.play(\"BottomToTop\")
+			is_animated = true
+		direction = TOP
+	elif Input.is_action_pressed(\"ui_down\"):
+		if is_animated == false or direction != DOWN:
+			$AnimationPlayer.play(\"TopToBottom\")
+			is_animated = true
+		direction = DOWN
+	elif Input.is_action_pressed(\"ui_right\"):
+		if is_animated == false or direction != RIGHT:
+			$AnimationPlayer.play(\"LeftToRight\")
+			is_animated = true
+		direction = RIGHT
+	elif Input.is_action_pressed(\"ui_left\"):
+		if is_animated == false or direction != LEFT:
+			$AnimationPlayer.play(\"RightToLeft\")
+			is_animated = true
+		direction = LEFT
+	else:
+		is_moving = false
+		is_animated = false
+		$AnimationPlayer.stop()
+		
+		if direction == TOP:
+			$Sprite.frame = 12
+		elif direction == DOWN:
+			$Sprite.frame = 18
+		elif direction == RIGHT:
+			$Sprite.frame = 0
+		elif direction == LEFT:
+			$Sprite.frame = 6
+		
+	if is_moving:
+		speed = MAX_SPEED
+	else:
+		speed = 0
+		
+	var velocity = speed * direction * delta
+	move_and_collide(velocity)"
+
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 15.0
 height = 30.0
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 30.0
 height = 10.0
 
-[sub_resource type="Animation" id=2]
-resource_name = "BottomToTop"
+[sub_resource type="Animation" id=4]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -27,8 +91,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15, 16, 17 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "LeftToRight"
+[sub_resource type="Animation" id=5]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -44,8 +107,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "RightToLeft"
+[sub_resource type="Animation" id=6]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -61,8 +123,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "TopToBottom"
+[sub_resource type="Animation" id=7]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -80,29 +141,34 @@ tracks/0/keys = {
 
 [node name="Node2D" type="Node2D"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="Player" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+script = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
-scale = Vector2( 5, 5 )
+[node name="Sprite" type="Sprite" parent="Player"]
+scale = Vector2( 10, 10 )
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 6
-frame = 10
+frame = 18
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( 0, 28 )
 rotation = 1.5708
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="KinematicBody2D"]
+[node name="Area2D" type="Area2D" parent="Player"]
+editor/display_folded = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
 visible = false
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D"]
-anims/BottomToTop = SubResource( 2 )
-anims/LeftToRight = SubResource( 1 )
-anims/RightToLeft = SubResource( 3 )
-anims/TopToBottom = SubResource( 4 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+anims/BottomToTop = SubResource( 4 )
+anims/LeftToRight = SubResource( 5 )
+anims/RightToLeft = SubResource( 6 )
+anims/TopToBottom = SubResource( 7 )
+
+[node name="ItemHandler" type="Node" parent="."]
+script = ExtResource( 2 )

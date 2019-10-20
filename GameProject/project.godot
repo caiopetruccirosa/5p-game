@@ -8,15 +8,23 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "ItemHandler",
+"language": "GDScript",
+"path": "res://scenes/ItemHandler.gd"
+}, {
+"base": "Node",
+"class": "ItemModel",
+"language": "GDScript",
+"path": "res://scenes/ItemModel.gd"
+} ]
 _global_script_class_icons={
-
+"ItemHandler": "",
+"ItemModel": ""
 }
 
 [application]
 
 config/name="Game5P"
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"
+run/main_scene="res://scenes/default.tscn"
