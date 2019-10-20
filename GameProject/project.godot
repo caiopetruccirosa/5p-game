@@ -8,14 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "ItemHandler",
+"language": "GDScript",
+"path": "res://Scenes/ItemHandler.gd"
+} ]
 _global_script_class_icons={
-
+"ItemHandler": ""
 }
 
 [application]
 
 config/name="5PGame"
+run/main_scene="res://Scenes/S1C1.tscn"
 config/icon="res://icon.png"
 
 [rendering]
