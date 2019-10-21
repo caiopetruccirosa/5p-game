@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/annotations.png-e16506dd298befc565246921644a32f5.stex"
+path="res://.import/props.png-17ed1381daf1075fbfc48c8a607482a8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/annotations.png"
-dest_files=[ "res://.import/annotations.png-e16506dd298befc565246921644a32f5.stex" ]
+source_file="res://Assets/props.png"
+dest_files=[ "res://.import/props.png-17ed1381daf1075fbfc48c8a607482a8.stex" ]
 
 [params]
 

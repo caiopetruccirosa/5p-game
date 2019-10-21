@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/annotations.png-e16506dd298befc565246921644a32f5.stex"
+path="res://.import/properSatan.png-f66e9f24ee0e0962ec1acf8d7b3f046b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/annotations.png"
-dest_files=[ "res://.import/annotations.png-e16506dd298befc565246921644a32f5.stex" ]
+source_file="res://Assets/properSatan.png"
+dest_files=[ "res://.import/properSatan.png-f66e9f24ee0e0962ec1acf8d7b3f046b.stex" ]
 
 [params]
 

@@ -2,162 +2,150 @@
 
 [ext_resource path="res://Assets/tilesinferno.png" type="Texture" id=1]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.99858, 7.99762 )
 
 [node name="HellTileMap" type="Node2D"]
 
-[node name="noBonesGround" type="Node2D" parent="."]
-editor/display_folded = true
-
-[node name="ground11" type="Sprite" parent="noBonesGround"]
+[node name="ground11" type="Sprite" parent="."]
 position = Vector2( 32, 32 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 
-[node name="ground12" type="Sprite" parent="noBonesGround"]
+[node name="ground12" type="Sprite" parent="."]
 position = Vector2( 56, 32 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 1
 
-[node name="ground13" type="Sprite" parent="noBonesGround"]
+[node name="ground13" type="Sprite" parent="."]
 position = Vector2( 80, 32 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 2
 
-[node name="ground21" type="Sprite" parent="noBonesGround"]
+[node name="ground21" type="Sprite" parent="."]
 position = Vector2( 32, 56 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 6
 
-[node name="ground22" type="Sprite" parent="noBonesGround"]
+[node name="ground22" type="Sprite" parent="."]
 position = Vector2( 56, 56 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 7
 
-[node name="ground23" type="Sprite" parent="noBonesGround"]
+[node name="ground23" type="Sprite" parent="."]
 position = Vector2( 80, 56 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 8
 
-[node name="ground31" type="Sprite" parent="noBonesGround"]
+[node name="ground31" type="Sprite" parent="."]
 position = Vector2( 32, 80 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 12
 
-[node name="ground32" type="Sprite" parent="noBonesGround"]
+[node name="ground32" type="Sprite" parent="."]
 position = Vector2( 56, 80 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 13
 
-[node name="ground33" type="Sprite" parent="noBonesGround"]
+[node name="ground33" type="Sprite" parent="."]
 position = Vector2( 80, 80 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 14
 
-[node name="bonesGround" type="Node2D" parent="."]
-editor/display_folded = true
-
-[node name="bGround11" type="Sprite" parent="bonesGround"]
+[node name="bGround11" type="Sprite" parent="."]
 position = Vector2( 112, 32 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 3
 
-[node name="bGround12" type="Sprite" parent="bonesGround"]
+[node name="bGround12" type="Sprite" parent="."]
 position = Vector2( 136, 32 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 4
 
-[node name="bGround13" type="Sprite" parent="bonesGround"]
+[node name="bGround13" type="Sprite" parent="."]
 position = Vector2( 160, 32 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 5
 
-[node name="bGround21" type="Sprite" parent="bonesGround"]
+[node name="bGround21" type="Sprite" parent="."]
 position = Vector2( 112, 56 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 9
 
-[node name="bGround22" type="Sprite" parent="bonesGround"]
+[node name="bGround22" type="Sprite" parent="."]
 position = Vector2( 136, 56 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 10
 
-[node name="bGround23" type="Sprite" parent="bonesGround"]
+[node name="bGround23" type="Sprite" parent="."]
 position = Vector2( 160, 56 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 11
 
-[node name="bGround31" type="Sprite" parent="bonesGround"]
+[node name="bGround31" type="Sprite" parent="."]
 position = Vector2( 112, 80 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 15
 
-[node name="bGround32" type="Sprite" parent="bonesGround"]
+[node name="bGround32" type="Sprite" parent="."]
 position = Vector2( 136, 80 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 16
 
-[node name="bGround33" type="Sprite" parent="bonesGround"]
+[node name="bGround33" type="Sprite" parent="."]
 position = Vector2( 160, 80 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 17
 
-[node name="walls" type="Node2D" parent="."]
-editor/display_folded = true
-
-[node name="wall11" type="Sprite" parent="walls"]
-editor/display_folded = true
+[node name="wall11" type="Sprite" parent="."]
 position = Vector2( 192, 32 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 6
 frame = 18
 
-[node name="HellBlock" type="StaticBody2D" parent="walls/wall11"]
-editor/display_folded = true
+[node name="HellBlock" type="StaticBody2D" parent="wall11"]
 visible = false
 
-[node name="BlockCSH" type="CollisionShape2D" parent="walls/wall11/HellBlock"]
+[node name="BlockCSH" type="CollisionShape2D" parent="wall11/HellBlock"]
 shape = SubResource( 1 )
 
-[node name="wall12" type="Sprite" parent="walls"]
+[node name="wall12" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 216, 32 )
 texture = ExtResource( 1 )
@@ -165,14 +153,13 @@ vframes = 6
 hframes = 6
 frame = 19
 
-[node name="HellBlock" type="StaticBody2D" parent="walls/wall12"]
-editor/display_folded = true
+[node name="HellBlock" type="StaticBody2D" parent="wall12"]
 visible = false
 
-[node name="BlockCSH" type="CollisionShape2D" parent="walls/wall12/HellBlock"]
+[node name="BlockCSH" type="CollisionShape2D" parent="wall12/HellBlock"]
 shape = SubResource( 1 )
 
-[node name="wall13" type="Sprite" parent="walls"]
+[node name="wall13" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 240, 32 )
 texture = ExtResource( 1 )
@@ -180,14 +167,14 @@ vframes = 6
 hframes = 6
 frame = 20
 
-[node name="HellBlock" type="StaticBody2D" parent="walls/wall13"]
+[node name="HellBlock" type="StaticBody2D" parent="wall13"]
 editor/display_folded = true
 visible = false
 
-[node name="BlockCSH" type="CollisionShape2D" parent="walls/wall13/HellBlock"]
+[node name="BlockCSH" type="CollisionShape2D" parent="wall13/HellBlock"]
 shape = SubResource( 1 )
 
-[node name="wall21" type="Sprite" parent="walls"]
+[node name="wall21" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 192, 56 )
 texture = ExtResource( 1 )
@@ -195,14 +182,14 @@ vframes = 6
 hframes = 6
 frame = 24
 
-[node name="HellBlock" type="StaticBody2D" parent="walls/wall21"]
+[node name="HellBlock" type="StaticBody2D" parent="wall21"]
 editor/display_folded = true
 visible = false
 
-[node name="BlockCSH" type="CollisionShape2D" parent="walls/wall21/HellBlock"]
+[node name="BlockCSH" type="CollisionShape2D" parent="wall21/HellBlock"]
 shape = SubResource( 1 )
 
-[node name="wall22" type="Sprite" parent="walls"]
+[node name="wall22" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 216, 56 )
 texture = ExtResource( 1 )
@@ -210,14 +197,14 @@ vframes = 6
 hframes = 6
 frame = 25
 
-[node name="HellBlock" type="StaticBody2D" parent="walls/wall22"]
+[node name="HellBlock" type="StaticBody2D" parent="wall22"]
 editor/display_folded = true
 visible = false
 
-[node name="BlockCSH" type="CollisionShape2D" parent="walls/wall22/HellBlock"]
+[node name="BlockCSH" type="CollisionShape2D" parent="wall22/HellBlock"]
 shape = SubResource( 1 )
 
-[node name="wall23" type="Sprite" parent="walls"]
+[node name="wall23" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 240, 56 )
 texture = ExtResource( 1 )
@@ -225,14 +212,14 @@ vframes = 6
 hframes = 6
 frame = 26
 
-[node name="HellBlock" type="StaticBody2D" parent="walls/wall23"]
+[node name="HellBlock" type="StaticBody2D" parent="wall23"]
 editor/display_folded = true
 visible = false
 
-[node name="BlockCSH" type="CollisionShape2D" parent="walls/wall23/HellBlock"]
+[node name="BlockCSH" type="CollisionShape2D" parent="wall23/HellBlock"]
 shape = SubResource( 1 )
 
-[node name="wall31" type="Sprite" parent="walls"]
+[node name="wall31" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 192, 80 )
 texture = ExtResource( 1 )
@@ -240,14 +227,14 @@ vframes = 6
 hframes = 6
 frame = 30
 
-[node name="HellBlock" type="StaticBody2D" parent="walls/wall31"]
+[node name="HellBlock" type="StaticBody2D" parent="wall31"]
 editor/display_folded = true
 visible = false
 
-[node name="BlockCSH" type="CollisionShape2D" parent="walls/wall31/HellBlock"]
+[node name="BlockCSH" type="CollisionShape2D" parent="wall31/HellBlock"]
 shape = SubResource( 1 )
 
-[node name="wall32" type="Sprite" parent="walls"]
+[node name="wall32" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 216, 80 )
 texture = ExtResource( 1 )
@@ -255,14 +242,14 @@ vframes = 6
 hframes = 6
 frame = 31
 
-[node name="HellBlock" type="StaticBody2D" parent="walls/wall32"]
+[node name="HellBlock" type="StaticBody2D" parent="wall32"]
 editor/display_folded = true
 visible = false
 
-[node name="BlockCSH" type="CollisionShape2D" parent="walls/wall32/HellBlock"]
+[node name="BlockCSH" type="CollisionShape2D" parent="wall32/HellBlock"]
 shape = SubResource( 1 )
 
-[node name="wall33" type="Sprite" parent="walls"]
+[node name="wall33" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 240, 80 )
 texture = ExtResource( 1 )
@@ -270,9 +257,9 @@ vframes = 6
 hframes = 6
 frame = 32
 
-[node name="HellBlock" type="StaticBody2D" parent="walls/wall33"]
+[node name="HellBlock" type="StaticBody2D" parent="wall33"]
 editor/display_folded = true
 visible = false
 
-[node name="BlockCSH" type="CollisionShape2D" parent="walls/wall33/HellBlock"]
+[node name="BlockCSH" type="CollisionShape2D" parent="wall33/HellBlock"]
 shape = SubResource( 1 )
