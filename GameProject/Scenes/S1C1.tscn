@@ -307,6 +307,7 @@ editor/display_folded = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vela 2/StaticBody2D"]
 
 [node name="Canvas" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="info" type="Sprite" parent="Canvas"]
 position = Vector2( 359.677, 246.107 )
@@ -534,6 +535,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="IronBarsRight6" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 180, 2580 )
 __meta__ = {
 "_edit_group_": true
@@ -619,6 +621,7 @@ one_shot = true
 [node name="Souls" type="Node2D" parent="."]
 
 [node name="Soul1" type="StaticBody2D" parent="Souls"]
+editor/display_folded = true
 position = Vector2( 712.527, 3835.93 )
 __meta__ = {
 "_edit_group_": true
@@ -650,6 +653,7 @@ text = "Me queimaram numa estaca! Você acredita nisso? Só porque eu falsifique
 autowrap = true
 
 [node name="Soul2" type="StaticBody2D" parent="Souls"]
+editor/display_folded = true
 position = Vector2( 284.738, 4081.37 )
 
 [node name="Sprite" type="Sprite" parent="Souls/Soul2"]
@@ -678,6 +682,7 @@ text = "Eu não aguento mais a dor… Você tem algo para dor? Eu… eu só quer
 autowrap = true
 
 [node name="Soul3" type="StaticBody2D" parent="Souls"]
+editor/display_folded = true
 position = Vector2( 727.316, 4386.65 )
 __meta__ = {
 "_edit_group_": true
@@ -709,6 +714,7 @@ text = " Como eu cheguei aqui? Eu fingi que transformei água em vinho colocando
 autowrap = true
 
 [node name="Soul4" type="StaticBody2D" parent="Souls"]
+editor/display_folded = true
 position = Vector2( 300.916, 4654.94 )
 
 [node name="Sprite" type="Sprite" parent="Souls/Soul4"]
@@ -738,6 +744,7 @@ text = "  Você é aquele médico né? As pessoas só estão mortas por sua culp
 autowrap = true
 
 [node name="Soul5" type="StaticBody2D" parent="Souls"]
+editor/display_folded = true
 position = Vector2( 691.019, 5026.81 )
 __meta__ = {
 "_edit_group_": true
@@ -804,7 +811,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Souls/Soul7"]
-scale = Vector2( 8, 0.355 )
+scale = Vector2( 8, 8 )
 texture = ExtResource( 5 )
 vframes = 11
 hframes = 5
